@@ -1,0 +1,42 @@
+{
+	"PDK": "gf180mcuD",
+	"STD_CELL_LIBRARY": "gf180mcu_fd_sc_mcu7t5v0",
+	"DESIGN_NAME": "DDS_Module",
+	"VERILOG_FILES": [
+		"dir::../../verilog/rtl/defines.v",
+		"dir::../../verilog/rtl/DDS_Module/aguCosQI2_16b.v",
+		"dir::../../verilog/rtl/DDS_Module/ControlUnit.v",
+		"dir::../../verilog/rtl/DDS_Module/DDS.v",
+		"dir::../../verilog/rtl/DDS_Module/EvaluatorPolynomial.v",
+		"dir::../../verilog/rtl/DDS_Module/PolyROM.v",
+		"dir::../../verilog/rtl/DDS_Module/ROM_memA0.v",
+		"dir::../../verilog/rtl/DDS_Module/ROM_memA1.v",
+		"dir::../../verilog/rtl/DDS_Module/ROM_memA2.v",
+		"dir::../../verilog/rtl/DDS_Module/datapath2b.v",
+		"dir::../../verilog/rtl/DDS_Module/mac.v",
+		"dir::../../verilog/rtl/DDS_Module/mux2a1Format.v",
+		"dir::../../verilog/rtl/DDS_Module/register.v",
+		"dir::../../verilog/rtl/DDS_Module/xGenerator.v",
+		"dir::../../verilog/rtl/DDS_Module/DDS_Module.v"
+	],
+	"DESIGN_IS_CORE": 0,
+	"CLOCK_PORT": "clk",
+	"CLOCK_NET": "DDS_Stage.clk",
+	"CLOCK_PERIOD": "24.0",
+	"FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+	"PL_BASIC_PLACEMENT": 0,
+	"PL_TARGET_DENSITY": 0.45,
+	"FP_CORE_UTIL": 40,
+	"MAX_FANOUT_CONSTRAINT": 150,
+	"RT_MAX_LAYER": "Metal4",
+	"VDD_NETS": [
+		"vdd"
+	],
+	"GND_NETS": [
+		"vss"
+	],
+    "BASE_SDC_FILE": "dir::base_user_proj_example.sdc",
+	"RUN_HEURISTIC_DIODE_INSERTION": 1,
+	"RUN_CVC": 1,
+	"QUIT_ON_LINTER_ERRORS": 0
+}

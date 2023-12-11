@@ -30,10 +30,8 @@ if { ![info exists ::env(SYNTH_CLK_DRIVING_CELL_PIN)] } {
 
 # Clock non-idealities
 set_propagated_clock [all_clocks]
-set_clock_uncertainty $::env(SYNTH_CLOCK_UNCERTAINTY) [get_clocks {clk}]
-puts "\[INFO\]: Setting clock uncertainity to: $::env(SYNTH_CLOCK_UNCERTAINTY)"
-set_clock_transition $::env(SYNTH_CLOCK_TRANSITION) [get_clocks {clk}]
-puts "\[INFO\]: Setting clock transition to: $::env(SYNTH_CLOCK_TRANSITION)"
+set_clock_uncertainty 0.1 [get_clocks {clk}]
+puts "\[INFO\]: Setting clock uncertainity to: 0.1"
 
 # Maximum transition time for the design nets
 set_max_transition $::env(MAX_TRANSITION_CONSTRAINT) [current_design]
@@ -44,9 +42,9 @@ set_max_fanout $::env(MAX_FANOUT_CONSTRAINT) [current_design]
 puts "\[INFO\]: Setting maximum fanout to: $::env(MAX_FANOUT_CONSTRAINT)"
 
 # Timing paths delays derate
-set_timing_derate -early [expr {1-$::env(SYNTH_TIMING_DERATE)}]
-set_timing_derate -late [expr {1+$::env(SYNTH_TIMING_DERATE)}]
-puts "\[INFO\]: Setting timing derate to: [expr {$::env(SYNTH_TIMING_DERATE) * 100}] %"
+set_timing_derate -early [expr {1-0.05}]
+set_timing_derate -late [expr {1+0.05}]
+puts "\[INFO\]: Setting timing derate to: [expr {0.05 * 100}] %"
 
 # Reset input delay
 set_input_delay [expr $::env(CLOCK_PERIOD) * 0.5] -clock [get_clocks {clk}] [get_ports {wb_rst_i}]
@@ -79,7 +77,7 @@ set_input_transition $clk_tran [get_ports $clk_input]
 puts "\[INFO\]: Setting clock transition: $clk_tran"
 
 # Input delays
-set_input_delay -max 8 -clock [get_clocks {clk}] [get_ports {la_data_in[*]}]
+set_input_delay -max 1.87 -clock [get_clocks {clk}] [get_ports {la_data_in[*]}]
 set_input_delay -max 1.89 -clock [get_clocks {clk}] [get_ports {la_oenb[*]}]
 set_input_delay -max 3.17 -clock [get_clocks {clk}] [get_ports {wbs_sel_i[*]}]
 set_input_delay -max 3.74 -clock [get_clocks {clk}] [get_ports {wbs_we_i}]
