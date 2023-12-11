@@ -1,0 +1,147 @@
+make -C openlane DDS
+make[1]: Entering directory '/home/joc/caravel/DDS_POLY_GFMPW1/openlane'
+# DDS
+mkdir -p ./DDS/runs/23_12_11_13_59 
+rm -rf ./DDS/runs/DDS
+ln -s $(realpath ./DDS/runs/23_12_11_13_59) ./DDS/runs/DDS
+docker run -it -u $(id -u $USER):$(id -g $USER) -v $(realpath /home/joc/caravel/DDS_POLY_GFMPW1/..):$(realpath /home/joc/caravel/DDS_POLY_GFMPW1/..) -v /home/joc/caravel/pdks:/home/joc/caravel/pdks -v /home/joc/caravel/DDS_POLY_GFMPW1/caravel:/home/joc/caravel/DDS_POLY_GFMPW1/caravel -v /home/joc/caravel/openlane_src:/openlane -v /home/joc/caravel/DDS_POLY_GFMPW1/mgmt_core_wrapper:/home/joc/caravel/DDS_POLY_GFMPW1/mgmt_core_wrapper -e PDK_ROOT=/home/joc/caravel/pdks -e PDK=gf180mcuD -e MISMATCHES_OK=1 -e CARAVEL_ROOT=/home/joc/caravel/DDS_POLY_GFMPW1/caravel -e OPENLANE_RUN_TAG=23_12_11_13_59 -e MCW_ROOT=/home/joc/caravel/DDS_POLY_GFMPW1/mgmt_core_wrapper  \
+	efabless/openlane:2023.10.16 sh -c "flow.tcl -design $(realpath ./DDS) -save_path $(realpath ..) -save -tag 23_12_11_13_59 -overwrite -ignore_mismatches"
+OpenLane 7ea7a2aeef4bea5445d133c26ca2b3e9f0d0c78f
+All rights reserved. (c) 2020-2022 Efabless Corporation and contributors.
+Available under the Apache License, version 2.0. See the LICENSE file for more details.
+
+[33m[WARNING]: OpenLane may not function properly: open_pdks e0f692f46654d6c7c99fc70a0c94a080dab53571
+The version of open_pdks used in building the PDK does not match the version OpenLane was tested on (installed: e0f692f46654d6c7c99fc70a0c94a080dab53571, tested: dd7771c384ed36b91a25e9f8b314355fc26561be)
+This may introduce some issues. You may want to re-install the PDK by invoking `make pdk`.[39m
+[36m[INFO]: Using configuration in '../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/config.json'...[39m
+[36m[INFO]: PDK Root: /home/joc/caravel/pdks[39m
+[36m[INFO]: Process Design Kit: gf180mcuD[39m
+[36m[INFO]: Standard Cell Library: gf180mcu_fd_sc_mcu7t5v0[39m
+[36m[INFO]: Optimization Standard Cell Library: gf180mcu_fd_sc_mcu7t5v0[39m
+[33m[WARNING]: DIODE_INSERTION_STRATEGY is now deprecated; use GRT_REPAIR_ANTENNAS, DIODE_ON_PORTS and RUN_HEURISTIC_DIODE_INSERTION instead.[39m
+[36m[INFO]: DIODE_INSERTION_STRATEGY set to 4. Setting RUN_HEURISTIC_DIODE_INSERTION to 1[39m
+[36m[INFO]: DIODE_INSERTION_STRATEGY set to 4. Setting DIODE_ON_PORTS to in[39m
+[36m[INFO]: Run Directory: /home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59[39m
+[36m[INFO]: Saving runtime environment...[39m
+[36m[INFO]: Preparing LEF files for the nom corner...[39m
+[36m[INFO]: Preparing LEF files for the min corner...[39m
+[36m[INFO]: Preparing LEF files for the max corner...[39m
+[36m[INFO]: Running linter (Verilator) (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/synthesis/linter.log)...[39m
+[33m[WARNING]: 3 errors found by linter[39m
+[33m[WARNING]: 299 warnings found by linter[39m
+[STEP 1]
+[36m[INFO]: Running Synthesis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/synthesis/1-synthesis.log)...[39m
+[STEP 2]
+[36m[INFO]: Running Single-Corner Static Timing Analysis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/synthesis/2-sta.log)...[39m
+[STEP 3]
+[36m[INFO]: Running Initial Floorplanning (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/floorplan/3-initial_fp.log)...[39m
+[36m[INFO]: Floorplanned with width 616.0 and height 615.44.[39m
+[STEP 4]
+[36m[INFO]: Running IO Placement (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/floorplan/4-place_io.log)...[39m
+[STEP 5]
+[36m[INFO]: Running Tap/Decap Insertion (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/floorplan/5-tap.log)...[39m
+[36m[INFO]: Power planning with power {vdd} and ground {vss}...[39m
+[STEP 6]
+[36m[INFO]: Generating PDN (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/floorplan/6-pdn.log)...[39m
+[STEP 7]
+[36m[INFO]: Running Global Placement (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/placement/7-global.log)...[39m
+[STEP 8]
+[36m[INFO]: Running Single-Corner Static Timing Analysis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/placement/8-gpl_sta.log)...[39m
+[STEP 9]
+[36m[INFO]: Running Placement Resizer Design Optimizations (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/placement/9-resizer.log)...[39m
+[STEP 10]
+[36m[INFO]: Running Detailed Placement (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/placement/10-detailed.log)...[39m
+[STEP 11]
+[36m[INFO]: Running Single-Corner Static Timing Analysis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/placement/11-dpl_sta.log)...[39m
+[STEP 12]
+[36m[INFO]: Running Clock Tree Synthesis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/cts/12-cts.log)...[39m
+[STEP 13]
+[36m[INFO]: Running Single-Corner Static Timing Analysis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/cts/13-cts_sta.log)...[39m
+[STEP 14]
+[36m[INFO]: Running Placement Resizer Timing Optimizations (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/cts/14-resizer.log)...[39m
+[STEP 15]
+[36m[INFO]: Running Global Routing Resizer Design Optimizations (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/15-resizer_design.log)...[39m
+[STEP 16]
+[36m[INFO]: Running Single-Corner Static Timing Analysis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/16-rsz_design_sta.log)...[39m
+[STEP 17]
+[36m[INFO]: Running Global Routing Resizer Timing Optimizations (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/17-resizer_timing.log)...[39m
+[STEP 18]
+[36m[INFO]: Running Single-Corner Static Timing Analysis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/18-rsz_timing_sta.log)...[39m
+[STEP 19]
+[36m[INFO]: Running I/O Diode Insertion (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/19-io_diodes.log)...[39m
+[STEP 20]
+[36m[INFO]: Running Detailed Placement (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/20-io_diode_legalization.log)...[39m
+[STEP 21]
+[36m[INFO]: Running Heuristic Diode Insertion (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/21-diodes.log)...[39m
+[STEP 22]
+[36m[INFO]: Running Detailed Placement (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/22-diode_legalization.log)...[39m
+[STEP 23]
+[36m[INFO]: Running Global Routing (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/23-global.log)...[39m
+[36m[INFO]: Starting OpenROAD Antenna Repair Iterations...[39m
+[STEP 24]
+[36m[INFO]: Writing Verilog (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/23-global_write_netlist.log)...[39m
+[STEP 25]
+[36m[INFO]: Running Single-Corner Static Timing Analysis (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/25-grt_sta.log)...[39m
+[STEP 26]
+[36m[INFO]: Running Fill Insertion (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/26-fill.log)...[39m
+[STEP 27]
+[36m[INFO]: Running Detailed Routing (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/27-detailed.log)...[39m
+[36m[INFO]: No DRC violations after detailed routing.[39m
+[STEP 28]
+[36m[INFO]: Checking Wire Lengths (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/routing/28-wire_lengths.log)...[39m
+[STEP 29]
+[36m[INFO]: Running SPEF Extraction at the min process corner (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/29-parasitics_extraction.min.log)...[39m
+[STEP 30]
+[36m[INFO]: Running Multi-Corner Static Timing Analysis at the min process corner (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/30-rcx_mcsta.min.log)...[39m
+[STEP 31]
+[36m[INFO]: Running SPEF Extraction at the max process corner (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/31-parasitics_extraction.max.log)...[39m
+[STEP 32]
+[36m[INFO]: Running Multi-Corner Static Timing Analysis at the max process corner (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/32-rcx_mcsta.max.log)...[39m
+[STEP 33]
+[36m[INFO]: Running SPEF Extraction at the nom process corner (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/33-parasitics_extraction.nom.log)...[39m
+[STEP 34]
+[36m[INFO]: Running Multi-Corner Static Timing Analysis at the nom process corner (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/34-rcx_mcsta.nom.log)...[39m
+[STEP 35]
+[36m[INFO]: Creating IR Drop Report (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/35-irdrop.log)...[39m
+[33m[WARNING]: VSRC_LOC_FILES is not defined. The IR drop analysis will run, but the values may be inaccurate.[39m
+[STEP 36]
+[36m[INFO]: Running Magic to generate various views...[39m
+[36m[INFO]: Streaming out GDSII with Magic (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/36-gdsii.log)...[39m
+[36m[INFO]: Generating MAGLEF views...[39m
+[36m[INFO]: Generating lef with Magic (/home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/36-lef.log)...[39m
+[STEP 37]
+[36m[INFO]: Streaming out GDSII with KLayout (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/37-gdsii-klayout.log)...[39m
+[STEP 38]
+[36m[INFO]: Running XOR on the layouts using KLayout (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/38-xor.log)...[39m
+[36m[INFO]: No XOR differences between KLayout and Magic gds.[39m
+[STEP 39]
+[36m[INFO]: Running Magic Spice Export from LEF (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/39-spice.log)...[39m
+[STEP 40]
+[36m[INFO]: Writing Powered Verilog (logs: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/40-write_powered_def.log, ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/40-write_powered_verilog.log)...[39m
+[STEP 41]
+[36m[INFO]: Writing Verilog (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/40-write_powered_verilog.log)...[39m
+[STEP 42]
+[36m[INFO]: Running LVS (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/42-lvs.lef.log)...[39m
+[STEP 43]
+[36m[INFO]: Running Magic DRC (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/43-drc.log)...[39m
+[36m[INFO]: Converting Magic DRC database to various tool-readable formats...[39m
+[36m[INFO]: No DRC violations after GDS streaming out.[39m
+[STEP 44]
+[36m[INFO]: Running OpenROAD Antenna Rule Checker (log: ../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/logs/signoff/44-arc.log)...[39m
+[36m[INFO]: Saving current set of views in '../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/results/final'...[39m
+[36m[INFO]: Saving current set of views in '../home/joc/caravel/DDS_POLY_GFMPW1'...[39m
+[36m[INFO]: Saving runtime environment...[39m
+[36m[INFO]: Generating final set of reports...[39m
+[36m[INFO]: Created manufacturability report at '../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/reports/manufacturability.rpt'.[39m
+[36m[INFO]: Created metrics report at '../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/reports/metrics.csv'.[39m
+[33m[WARNING]: There are max fanout violations in the design at the Typical corner. Please refer to '../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/reports/signoff/34-sta-rcx_nom/multi_corner_sta.checks.rpt'.[39m
+[36m[INFO]: There are no hold violations in the design at the Typical corner.[39m
+[36m[INFO]: There are no setup violations in the design at the Typical corner.[39m
+[32m[SUCCESS]: Flow complete.[39m
+[36m[INFO]: Note that the following warnings have been generated:[39m
+[33m[WARNING]: 3 errors found by linter
+[WARNING]: 299 warnings found by linter
+[WARNING]: VSRC_LOC_FILES is not defined. The IR drop analysis will run, but the values may be inaccurate.
+[WARNING]: There are max fanout violations in the design at the Typical corner. Please refer to '../home/joc/caravel/DDS_POLY_GFMPW1/openlane/DDS/runs/23_12_11_13_59/reports/signoff/34-sta-rcx_nom/multi_corner_sta.checks.rpt'.
+[39m
+make[1]: Leaving directory '/home/joc/caravel/DDS_POLY_GFMPW1/openlane'
